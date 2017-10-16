@@ -7,4 +7,5 @@ fi
 # clear dir contents b4 code deploy extract...
 rm -fR /var/www/html/uat/*
 mkdir -p /var/www/html/uat
-
+rm -fR /var/www/html/frontapiuat/*
+mkdir -p /var/www/html/frontapiuat
