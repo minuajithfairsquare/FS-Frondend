@@ -1,0 +1,28 @@
+version: 0.0
+os: linux
+files:
+  - source: web/
+    destination: /var/www/html/uat
+  - source: api/
+    destination: /var/www/html/frontapiuat
+
+
+hooks: 
+
+  BeforeInstall:
+    - location: scripts/stop_server.sh
+      runas: root
+      timeout: 300
+
+    - location: scripts/clean_env_before_deploy.sh
+      runas: root
+      timeout: 300
+
+  AfterInstall:
+    - location: scripts/setpermission.sh
+      runas: root
+      timeout: 300
+
+    - location: scripts/start_server.sh
+      runas: root
+      timeout: 300
